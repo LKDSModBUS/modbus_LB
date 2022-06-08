@@ -29,10 +29,21 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.test_result_yes = new System.Windows.Forms.CheckBox();
+            this.test_result_ggs_err = new System.Windows.Forms.CheckBox();
+            this.test_ggs_yes = new System.Windows.Forms.CheckBox();
+            this.test_ggs_no_data = new System.Windows.Forms.CheckBox();
+            this.ggs_on = new System.Windows.Forms.CheckBox();
+            this.ggs_off = new System.Windows.Forms.CheckBox();
+            this.fire_subdivision = new System.Windows.Forms.CheckBox();
+            this.dispatcher = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.no_battery = new System.Windows.Forms.CheckBox();
+            this.battery_charge = new System.Windows.Forms.CheckBox();
+            this.test_batery_go = new System.Windows.Forms.CheckBox();
             this.batt_support_no = new System.Windows.Forms.CheckBox();
             this.test_batery_ok = new System.Windows.Forms.CheckBox();
             this.batery_err = new System.Windows.Forms.CheckBox();
@@ -78,17 +89,6 @@
             this.restart = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lb_appver = new System.Windows.Forms.Label();
-            this.test_batery_go = new System.Windows.Forms.CheckBox();
-            this.battery_charge = new System.Windows.Forms.CheckBox();
-            this.no_battery = new System.Windows.Forms.CheckBox();
-            this.dispatcher = new System.Windows.Forms.CheckBox();
-            this.fire_subdivision = new System.Windows.Forms.CheckBox();
-            this.ggs_off = new System.Windows.Forms.CheckBox();
-            this.ggs_on = new System.Windows.Forms.CheckBox();
-            this.test_ggs_no_data = new System.Windows.Forms.CheckBox();
-            this.test_ggs_yes = new System.Windows.Forms.CheckBox();
-            this.test_result_yes = new System.Windows.Forms.CheckBox();
-            this.test_result_ggs_err = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -117,6 +117,94 @@
             this.groupBox1.Size = new System.Drawing.Size(317, 212);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // test_result_yes
+            // 
+            this.test_result_yes.AutoSize = true;
+            this.test_result_yes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.test_result_yes.Location = new System.Drawing.Point(124, 182);
+            this.test_result_yes.Name = "test_result_yes";
+            this.test_result_yes.Size = new System.Drawing.Size(47, 22);
+            this.test_result_yes.TabIndex = 18;
+            this.test_result_yes.Text = "Да";
+            this.test_result_yes.UseVisualStyleBackColor = true;
+            // 
+            // test_result_ggs_err
+            // 
+            this.test_result_ggs_err.AutoSize = true;
+            this.test_result_ggs_err.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.test_result_ggs_err.Location = new System.Drawing.Point(10, 182);
+            this.test_result_ggs_err.Name = "test_result_ggs_err";
+            this.test_result_ggs_err.Size = new System.Drawing.Size(83, 22);
+            this.test_result_ggs_err.TabIndex = 17;
+            this.test_result_ggs_err.Text = "Ошибка";
+            this.test_result_ggs_err.UseVisualStyleBackColor = true;
+            // 
+            // test_ggs_yes
+            // 
+            this.test_ggs_yes.AutoSize = true;
+            this.test_ggs_yes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.test_ggs_yes.Location = new System.Drawing.Point(124, 135);
+            this.test_ggs_yes.Name = "test_ggs_yes";
+            this.test_ggs_yes.Size = new System.Drawing.Size(47, 22);
+            this.test_ggs_yes.TabIndex = 16;
+            this.test_ggs_yes.Text = "Да";
+            this.test_ggs_yes.UseVisualStyleBackColor = true;
+            // 
+            // test_ggs_no_data
+            // 
+            this.test_ggs_no_data.AutoSize = true;
+            this.test_ggs_no_data.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.test_ggs_no_data.Location = new System.Drawing.Point(10, 135);
+            this.test_ggs_no_data.Name = "test_ggs_no_data";
+            this.test_ggs_no_data.Size = new System.Drawing.Size(108, 22);
+            this.test_ggs_no_data.TabIndex = 15;
+            this.test_ggs_no_data.Text = "Нет данных";
+            this.test_ggs_no_data.UseVisualStyleBackColor = true;
+            // 
+            // ggs_on
+            // 
+            this.ggs_on.AutoSize = true;
+            this.ggs_on.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ggs_on.Location = new System.Drawing.Point(10, 89);
+            this.ggs_on.Name = "ggs_on";
+            this.ggs_on.Size = new System.Drawing.Size(97, 22);
+            this.ggs_on.TabIndex = 14;
+            this.ggs_on.Text = "Включена";
+            this.ggs_on.UseVisualStyleBackColor = true;
+            // 
+            // ggs_off
+            // 
+            this.ggs_off.AutoSize = true;
+            this.ggs_off.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ggs_off.Location = new System.Drawing.Point(126, 89);
+            this.ggs_off.Name = "ggs_off";
+            this.ggs_off.Size = new System.Drawing.Size(108, 22);
+            this.ggs_off.TabIndex = 13;
+            this.ggs_off.Text = "Выключена";
+            this.ggs_off.UseVisualStyleBackColor = true;
+            // 
+            // fire_subdivision
+            // 
+            this.fire_subdivision.AutoSize = true;
+            this.fire_subdivision.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fire_subdivision.Location = new System.Drawing.Point(10, 42);
+            this.fire_subdivision.Name = "fire_subdivision";
+            this.fire_subdivision.Size = new System.Drawing.Size(224, 22);
+            this.fire_subdivision.TabIndex = 12;
+            this.fire_subdivision.Text = "Работает режим связи ППП";
+            this.fire_subdivision.UseVisualStyleBackColor = true;
+            // 
+            // dispatcher
+            // 
+            this.dispatcher.AutoSize = true;
+            this.dispatcher.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dispatcher.Location = new System.Drawing.Point(11, 15);
+            this.dispatcher.Name = "dispatcher";
+            this.dispatcher.Size = new System.Drawing.Size(157, 22);
+            this.dispatcher.TabIndex = 11;
+            this.dispatcher.Text = "Вызов диспетчера";
+            this.dispatcher.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
@@ -171,6 +259,39 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Данные аккумулятора";
+            // 
+            // no_battery
+            // 
+            this.no_battery.AutoSize = true;
+            this.no_battery.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.no_battery.Location = new System.Drawing.Point(9, 305);
+            this.no_battery.Name = "no_battery";
+            this.no_battery.Size = new System.Drawing.Size(207, 22);
+            this.no_battery.TabIndex = 32;
+            this.no_battery.Text = "Отсутствует аккумулятор";
+            this.no_battery.UseVisualStyleBackColor = true;
+            // 
+            // battery_charge
+            // 
+            this.battery_charge.AutoSize = true;
+            this.battery_charge.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.battery_charge.Location = new System.Drawing.Point(9, 277);
+            this.battery_charge.Name = "battery_charge";
+            this.battery_charge.Size = new System.Drawing.Size(204, 22);
+            this.battery_charge.TabIndex = 31;
+            this.battery_charge.Text = "Аккумулятор заряжается";
+            this.battery_charge.UseVisualStyleBackColor = true;
+            // 
+            // test_batery_go
+            // 
+            this.test_batery_go.AutoSize = true;
+            this.test_batery_go.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.test_batery_go.Location = new System.Drawing.Point(9, 249);
+            this.test_batery_go.Name = "test_batery_go";
+            this.test_batery_go.Size = new System.Drawing.Size(257, 22);
+            this.test_batery_go.TabIndex = 30;
+            this.test_batery_go.Text = "Выполняется тест аккумулятора";
+            this.test_batery_go.UseVisualStyleBackColor = true;
             // 
             // batt_support_no
             // 
@@ -534,6 +655,7 @@
             // 
             // call_source
             // 
+            this.call_source.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.call_source.Location = new System.Drawing.Point(290, 103);
             this.call_source.Multiline = true;
             this.call_source.Name = "call_source";
@@ -614,127 +736,6 @@
             this.lb_appver.Size = new System.Drawing.Size(60, 20);
             this.lb_appver.TabIndex = 21;
             this.lb_appver.Text = "label20";
-            // 
-            // test_batery_go
-            // 
-            this.test_batery_go.AutoSize = true;
-            this.test_batery_go.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.test_batery_go.Location = new System.Drawing.Point(9, 249);
-            this.test_batery_go.Name = "test_batery_go";
-            this.test_batery_go.Size = new System.Drawing.Size(257, 22);
-            this.test_batery_go.TabIndex = 30;
-            this.test_batery_go.Text = "Выполняется тест аккумулятора";
-            this.test_batery_go.UseVisualStyleBackColor = true;
-            // 
-            // battery_charge
-            // 
-            this.battery_charge.AutoSize = true;
-            this.battery_charge.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.battery_charge.Location = new System.Drawing.Point(9, 277);
-            this.battery_charge.Name = "battery_charge";
-            this.battery_charge.Size = new System.Drawing.Size(204, 22);
-            this.battery_charge.TabIndex = 31;
-            this.battery_charge.Text = "Аккумулятор заряжается";
-            this.battery_charge.UseVisualStyleBackColor = true;
-            // 
-            // no_battery
-            // 
-            this.no_battery.AutoSize = true;
-            this.no_battery.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.no_battery.Location = new System.Drawing.Point(9, 305);
-            this.no_battery.Name = "no_battery";
-            this.no_battery.Size = new System.Drawing.Size(207, 22);
-            this.no_battery.TabIndex = 32;
-            this.no_battery.Text = "Отсутствует аккумулятор";
-            this.no_battery.UseVisualStyleBackColor = true;
-            // 
-            // dispatcher
-            // 
-            this.dispatcher.AutoSize = true;
-            this.dispatcher.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dispatcher.Location = new System.Drawing.Point(11, 15);
-            this.dispatcher.Name = "dispatcher";
-            this.dispatcher.Size = new System.Drawing.Size(157, 22);
-            this.dispatcher.TabIndex = 11;
-            this.dispatcher.Text = "Вызов диспетчера";
-            this.dispatcher.UseVisualStyleBackColor = true;
-            // 
-            // fire_subdivision
-            // 
-            this.fire_subdivision.AutoSize = true;
-            this.fire_subdivision.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fire_subdivision.Location = new System.Drawing.Point(10, 42);
-            this.fire_subdivision.Name = "fire_subdivision";
-            this.fire_subdivision.Size = new System.Drawing.Size(224, 22);
-            this.fire_subdivision.TabIndex = 12;
-            this.fire_subdivision.Text = "Работает режим связи ППП";
-            this.fire_subdivision.UseVisualStyleBackColor = true;
-            // 
-            // ggs_off
-            // 
-            this.ggs_off.AutoSize = true;
-            this.ggs_off.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ggs_off.Location = new System.Drawing.Point(126, 89);
-            this.ggs_off.Name = "ggs_off";
-            this.ggs_off.Size = new System.Drawing.Size(108, 22);
-            this.ggs_off.TabIndex = 13;
-            this.ggs_off.Text = "Выключена";
-            this.ggs_off.UseVisualStyleBackColor = true;
-            // 
-            // ggs_on
-            // 
-            this.ggs_on.AutoSize = true;
-            this.ggs_on.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ggs_on.Location = new System.Drawing.Point(10, 89);
-            this.ggs_on.Name = "ggs_on";
-            this.ggs_on.Size = new System.Drawing.Size(97, 22);
-            this.ggs_on.TabIndex = 14;
-            this.ggs_on.Text = "Включена";
-            this.ggs_on.UseVisualStyleBackColor = true;
-            // 
-            // test_ggs_no_data
-            // 
-            this.test_ggs_no_data.AutoSize = true;
-            this.test_ggs_no_data.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.test_ggs_no_data.Location = new System.Drawing.Point(10, 135);
-            this.test_ggs_no_data.Name = "test_ggs_no_data";
-            this.test_ggs_no_data.Size = new System.Drawing.Size(108, 22);
-            this.test_ggs_no_data.TabIndex = 15;
-            this.test_ggs_no_data.Text = "Нет данных";
-            this.test_ggs_no_data.UseVisualStyleBackColor = true;
-            // 
-            // test_ggs_yes
-            // 
-            this.test_ggs_yes.AutoSize = true;
-            this.test_ggs_yes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.test_ggs_yes.Location = new System.Drawing.Point(124, 135);
-            this.test_ggs_yes.Name = "test_ggs_yes";
-            this.test_ggs_yes.Size = new System.Drawing.Size(47, 22);
-            this.test_ggs_yes.TabIndex = 16;
-            this.test_ggs_yes.Text = "Да";
-            this.test_ggs_yes.UseVisualStyleBackColor = true;
-            // 
-            // test_result_yes
-            // 
-            this.test_result_yes.AutoSize = true;
-            this.test_result_yes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.test_result_yes.Location = new System.Drawing.Point(124, 182);
-            this.test_result_yes.Name = "test_result_yes";
-            this.test_result_yes.Size = new System.Drawing.Size(47, 22);
-            this.test_result_yes.TabIndex = 18;
-            this.test_result_yes.Text = "Да";
-            this.test_result_yes.UseVisualStyleBackColor = true;
-            // 
-            // test_result_ggs_err
-            // 
-            this.test_result_ggs_err.AutoSize = true;
-            this.test_result_ggs_err.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.test_result_ggs_err.Location = new System.Drawing.Point(10, 182);
-            this.test_result_ggs_err.Name = "test_result_ggs_err";
-            this.test_result_ggs_err.Size = new System.Drawing.Size(83, 22);
-            this.test_result_ggs_err.TabIndex = 17;
-            this.test_result_ggs_err.Text = "Ошибка";
-            this.test_result_ggs_err.UseVisualStyleBackColor = true;
             // 
             // LiftControl
             // 

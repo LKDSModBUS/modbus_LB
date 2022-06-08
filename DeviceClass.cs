@@ -317,6 +317,145 @@ namespace modbusLB
             te130 = 130,
         }
 
+        public enum Stage
+        {
+            [Description("Вызов из МП")]
+            callMP = 0,
+            [Description("Вызов из приямка")]
+            callPR = 253,
+            [Description("Вызов из кабины")]
+            callKAB = 254,
+            [Description("Вызова нет")]
+            NOcall = 255,
+            [Description("Вызов с 1 этажа")]
+            call1 = 251,
+            [Description("Вызов с 2 этажа")]
+            call2 = 250,
+            [Description("Вызов с 3 этажа")]
+            call3 = 249,
+            [Description("Вызов с 4 этажа")]
+            call4 = 248,
+            [Description("Вызов с 5 этажа")]
+            call5 = 247,
+            [Description("Вызов с 6 этажа")]
+            call6 = 246,
+            [Description("Вызов с 7 этажа")]
+            call7 = 245,
+            [Description("Вызов с 8 этажа")]
+            call8 = 244,
+            [Description("Вызов с 9 этажа")]
+            call9 = 243,
+            [Description("Вызов с 10 этажа")]
+            call10 = 242,
+            [Description("Вызов с 11 этажа")]
+            call11 = 241,
+            [Description("Вызов с 12 этажа")]
+            call12 = 240,
+            [Description("Вызов с 13 этажа")]
+            call13 = 239,
+            [Description("Вызов с 14 этажа")]
+            call14 = 238,
+            [Description("Вызов с 15 этажа")]
+            call15 = 237,
+            [Description("Вызов с 16 этажа")]
+            call16 = 236,
+            [Description("Вызов с 17 этажа")]
+            call17 = 235,
+            [Description("Вызов с 18 этажа")]
+            call18 = 234,
+            [Description("Вызов с 19 этажа")]
+            call19 = 233,
+            [Description("Вызов с 20 этажа")]
+            call20 = 232,
+            [Description("Вызов с 21 этажа")]
+            call21 = 231,
+            [Description("Вызов с 22 этажа")]
+            call22 = 230,
+            [Description("Вызов с 23 этажа")]
+            call23 = 229,
+            [Description("Вызов с 24 этажа")]
+            call24 = 228,
+            [Description("Вызов с 25 этажа")]
+            call25 = 227,
+            [Description("Вызов с 26 этажа")]
+            call26 = 226,
+            [Description("Вызов с 27 этажа")]
+            call27 = 225,
+            [Description("Вызов с 28 этажа")]
+            call28 = 224,
+            [Description("Вызов с 29 этажа")]
+            call29 = 223,
+            [Description("Вызов с 30 этажа")]
+            call30 = 222,
+            [Description("Вызов с 31 этажа")]
+            call31 = 221,
+            [Description("Вызов с 32 этажа")]
+            call32 = 220,
+            [Description("Вызов с 33 этажа")]
+            call33 = 219,
+            [Description("Вызов с 34 этажа")]
+            call34 = 218,
+            [Description("Вызов с 35 этажа")]
+            call35 = 217,
+            [Description("Вызов с 36 этажа")]
+            call36 = 216,
+            [Description("Вызов с 37 этажа")]
+            call37 = 215,
+            [Description("Вызов с 38 этажа")]
+            call38 = 214,
+            [Description("Вызов с 39 этажа")]
+            call39 = 213,
+            [Description("Вызов с 40 этажа")]
+            call40 = 212,
+            [Description("Вызов с 41 этажа")]
+            call41 = 211,
+            [Description("Вызов с 42 этажа")]
+            call42 = 210,
+            [Description("Вызов с 43 этажа")]
+            call43 = 209,
+            [Description("Вызов с 44 этажа")]
+            call44 = 208,
+            [Description("Вызов с 45 этажа")]
+            call45 = 207,
+            [Description("Вызов с 46 этажа")]
+            call46 = 206,
+            [Description("Вызов с 47 этажа")]
+            call47 = 205,
+            [Description("Вызов с 48 этажа")]
+            call48 = 204,
+            [Description("Вызов с 49 этажа")]
+            call49 = 203,
+            [Description("Вызов с 50 этажа")]
+            call50 = 202,
+            [Description("Вызов с 51 этажа")]
+            call51 = 201,
+            [Description("Вызов с 52 этажа")]
+            call52 = 200,
+            [Description("Вызов с 53 этажа")]
+            call53 = 199,
+            [Description("Вызов с 54 этажа")]
+            call54 = 198,
+            [Description("Вызов с 55 этажа")]
+            call55 = 197,
+            [Description("Вызов с 56 этажа")]
+            call56 = 196,
+            [Description("Вызов с 57 этажа")]
+            call57 = 195,
+            [Description("Вызов с 58 этажа")]
+            call58 = 194,
+            [Description("Вызов с 59 этажа")]
+            call59 = 193,
+            [Description("Вызов с 60 этажа")]
+            call60 = 192,
+            [Description("Вызов с 61 этажа")]
+            call61 = 191,
+            [Description("Вызов с 62 этажа")]
+            call62 = 190,
+            [Description("Вызов с 63 этажа")]
+            call63 = 189,
+            [Description("Вызов с 64 этажа")]
+            call64 = 188,
+        }
 
     }
 }

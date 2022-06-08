@@ -29,8 +29,13 @@ namespace modbusLB
 
                     DeviceClass.LBClassType type = (DeviceClass.LBClassType)val.Value;
                     lb_type.Text = type.GetNameOfEnum();
+
+                    DeviceClass.Stage type1 = (DeviceClass.Stage)array[14];
+                    call_source.Text = type1.GetNameOfEnum();
+
                     lb_appver.Text = $"{array[4]}.{array[5]}.{array[6]}";
 
+                    #region [ggs]
                     dispatcher.Checked = ((array[13] & 0x20) != 0);
                     fire_subdivision.Checked = ((array[13] & 0x80) != 0);
 
@@ -48,7 +53,9 @@ namespace modbusLB
                         test_result_yes.Checked = true;
                     else
                         test_result_ggs_err.Checked = true;
+                    #endregion
 
+                    #region [battary]
                     if (((array[15] & 0x01) == 1))
                         batt_support_yes.Checked = true;
                     else
@@ -69,7 +76,7 @@ namespace modbusLB
                     test_batery_go.Checked = ((array[15] & 0x10) != 0);
                     battery_charge.Checked = ((array[15] & 0x20) != 0);
                     no_battery.Checked = ((array[15] & 0x40) != 0);
-
+                    #endregion
                 }
             }
         }
