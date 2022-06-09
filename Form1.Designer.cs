@@ -48,7 +48,7 @@
             this.liftcontroll.BackColor = System.Drawing.Color.White;
             this.liftcontroll.Location = new System.Drawing.Point(12, 35);
             this.liftcontroll.Name = "liftcontroll";
-            this.liftcontroll.Size = new System.Drawing.Size(928, 633);
+            this.liftcontroll.Size = new System.Drawing.Size(928, 671);
             this.liftcontroll.TabIndex = 0;
             this.liftcontroll.Load += new System.EventHandler(this.liftcontroll_Load);
             // 
@@ -57,7 +57,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(945, 668);
+            this.ClientSize = new System.Drawing.Size(945, 708);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.liftcontroll);
             this.Name = "Form1";

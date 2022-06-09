@@ -36,6 +36,38 @@ namespace modbusLB
             };
         }
 
+        [StructLayout(LayoutKind.Explicit)]
+        public struct Union32
+        {
+            [FieldOffset(0)]
+            public Int32 Value;
+            [NonSerialized]
+            [FieldOffset(0)]
+            public UInt32 UValue;
+            [FieldOffset(0)]
+            public byte Byte0;
+            [FieldOffset(1)]
+            public byte Byte1;
+            [FieldOffset(2)]
+            public byte Byte2;
+            [FieldOffset(3)]
+            public byte Byte3;
+            public bool isBitSet(byte index)
+            {
+                if (index >= 31)
+                    return false;
+                return (Value & (1L << index)) != 0;
+            }
+            [System.Xml.Serialization.XmlIgnore]
+            public byte[] ToArray => new byte[]
+            {
+            Byte0,
+            Byte1,
+            Byte2,
+            Byte3
+            };
+        }
+
         public static string GetNameOfEnum(this Enum enumVal)
         {
             var type = enumVal.GetType();
@@ -455,6 +487,64 @@ namespace modbusLB
             call63 = 189,
             [Description("Вызов с 64 этажа")]
             call64 = 188,
+        }
+
+        public enum WorkMode
+        {
+            [Description("Нормальный режим")]
+            normal = 0,
+            [Description("Погрузка")]
+            upload = 1,
+            [Description("Пожарная опасность, ППП")]
+            fire = 2,
+            [Description("Ревизия")]
+            inspection = 3,
+            [Description("Управление из МП")]
+            managmentMP = 4,
+            [Description("МП1")]
+            MP1 = 5,
+            [Description("Ввод параметров")]
+            parameterInput = 6,
+            [Description("МП2")]
+            MP2 = 7,
+            [Description("Корректировочный рейс")]
+            correct = 8,
+            [Description("Утренний режим")]
+            morning = 9,
+            [Description("Вечерний режим")]
+            evening = 10,
+            [Description("С проводником")]
+            attendant = 11,
+            [Description("Дистанционное отключение")]
+            liftOff = 12,
+            [Description("Режим авария")]
+            accidentMode = 13,
+            [Description("Сейсмическая опасность")]
+            earthQuake = 14,
+            [Description("Больничный режим")]
+            hospital = 15,
+            [Description("Аварийная остановка")]
+            fault = 16,
+            [Description("Режим Out of Service")]
+            outOfService = 17,
+            [Description("Режим пожарной тревоги")]
+            fire1 = 18,
+            [Description("Режим ППП")]
+            fire2 = 19,
+            [Description("Режим эвакуации")]
+            evacuation = 20,
+            [Description("Режим VIP")]
+            vip = 21,
+            [Description("Независимый режим работы")]
+            independed = 22,
+            [Description("Режим парковки")]
+            parking = 23,
+            [Description("Режим приоритет вызовов")]
+            LandingPriority = 24,
+            [Description("Режим приоритет приказов")]
+            CarPriority = 25,
+            [Description("Эскалатор остановлен по STOP")]
+            stopEscalator = 26,
         }
 
     }

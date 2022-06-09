@@ -82,13 +82,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.call_source = new System.Windows.Forms.TextBox();
             this.passangers = new System.Windows.Forms.RadioButton();
-            this.workload = new System.Windows.Forms.ProgressBar();
             this.emergency_stop = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.restart = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lb_appver = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.battary_precent = new System.Windows.Forms.Label();
+            this.progressBar1 = new MyCtrl.ProgressBar();
+            this.progressBar2 = new MyCtrl.ProgressBar();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -238,6 +241,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.battary_precent);
+            this.groupBox2.Controls.Add(this.progressBar2);
+            this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Controls.Add(this.no_battery);
             this.groupBox2.Controls.Add(this.battery_charge);
             this.groupBox2.Controls.Add(this.test_batery_go);
@@ -255,7 +261,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox2.Location = new System.Drawing.Point(627, 280);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(286, 339);
+            this.groupBox2.Size = new System.Drawing.Size(286, 385);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Данные аккумулятора";
@@ -620,9 +626,8 @@
             this.precent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.precent.Location = new System.Drawing.Point(218, 403);
             this.precent.Name = "precent";
-            this.precent.Size = new System.Drawing.Size(51, 20);
+            this.precent.Size = new System.Drawing.Size(0, 20);
             this.precent.TabIndex = 10;
-            this.precent.Text = "label2";
             // 
             // label3
             // 
@@ -674,13 +679,6 @@
             this.passangers.Text = "Наличие пассажиров";
             this.passangers.UseVisualStyleBackColor = true;
             // 
-            // workload
-            // 
-            this.workload.Location = new System.Drawing.Point(30, 400);
-            this.workload.Name = "workload";
-            this.workload.Size = new System.Drawing.Size(173, 23);
-            this.workload.TabIndex = 9;
-            // 
             // emergency_stop
             // 
             this.emergency_stop.Location = new System.Drawing.Point(30, 469);
@@ -711,10 +709,10 @@
             // 
             // restart
             // 
-            this.restart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.restart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.restart.Location = new System.Drawing.Point(104, 528);
             this.restart.Name = "restart";
-            this.restart.Size = new System.Drawing.Size(176, 21);
+            this.restart.Size = new System.Drawing.Size(176, 22);
             this.restart.TabIndex = 19;
             // 
             // label2
@@ -733,15 +731,69 @@
             this.lb_appver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lb_appver.Location = new System.Drawing.Point(189, 566);
             this.lb_appver.Name = "lb_appver";
-            this.lb_appver.Size = new System.Drawing.Size(60, 20);
+            this.lb_appver.Size = new System.Drawing.Size(0, 20);
             this.lb_appver.TabIndex = 21;
-            this.lb_appver.Text = "label20";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label20.Location = new System.Drawing.Point(7, 330);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(222, 18);
+            this.label20.TabIndex = 33;
+            this.label20.Text = "Уровень заряда аккумулятора";
+            // 
+            // battary_precent
+            // 
+            this.battary_precent.AutoSize = true;
+            this.battary_precent.Location = new System.Drawing.Point(197, 352);
+            this.battary_precent.Name = "battary_precent";
+            this.battary_precent.Size = new System.Drawing.Size(0, 20);
+            this.battary_precent.TabIndex = 34;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.BackgroundColor = System.Drawing.Color.Silver;
+            this.progressBar1.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.progressBar1.isBad = false;
+            this.progressBar1.isBattary = false;
+            this.progressBar1.isCharged = false;
+            this.progressBar1.isNo = false;
+            this.progressBar1.Location = new System.Drawing.Point(30, 400);
+            this.progressBar1.Maximum = 100;
+            this.progressBar1.Minimum = 0;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.RadiusCorner = 5;
+            this.progressBar1.Size = new System.Drawing.Size(182, 23);
+            this.progressBar1.TabIndex = 22;
+            this.progressBar1.Value = 0;
+            this.progressBar1.ValueColor = System.Drawing.Color.Green;
+            // 
+            // progressBar2
+            // 
+            this.progressBar2.BackgroundColor = System.Drawing.Color.Silver;
+            this.progressBar2.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.progressBar2.isBad = false;
+            this.progressBar2.isBattary = false;
+            this.progressBar2.isCharged = false;
+            this.progressBar2.isNo = false;
+            this.progressBar2.Location = new System.Drawing.Point(9, 352);
+            this.progressBar2.Maximum = 100;
+            this.progressBar2.Minimum = 0;
+            this.progressBar2.Name = "progressBar2";
+            this.progressBar2.RadiusCorner = 5;
+            this.progressBar2.Size = new System.Drawing.Size(182, 23);
+            this.progressBar2.TabIndex = 23;
+            this.progressBar2.Value = 0;
+            this.progressBar2.ValueColor = System.Drawing.Color.Green;
             // 
             // LiftControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lb_appver);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.restart);
@@ -754,7 +806,6 @@
             this.Controls.Add(this.lb_type);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.precent);
-            this.Controls.Add(this.workload);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.down);
             this.Controls.Add(this.groupBox3);
@@ -765,7 +816,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "LiftControl";
-            this.Size = new System.Drawing.Size(928, 627);
+            this.Size = new System.Drawing.Size(928, 681);
             this.Load += new System.EventHandler(this.LiftControl_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -811,7 +862,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox call_source;
         private System.Windows.Forms.RadioButton passangers;
-        private System.Windows.Forms.ProgressBar workload;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
@@ -847,5 +897,9 @@
         private System.Windows.Forms.CheckBox ggs_off;
         private System.Windows.Forms.CheckBox fire_subdivision;
         private System.Windows.Forms.CheckBox dispatcher;
+        private MyCtrl.ProgressBar progressBar1;
+        private System.Windows.Forms.Label battary_precent;
+        private MyCtrl.ProgressBar progressBar2;
+        private System.Windows.Forms.Label label20;
     }
 }

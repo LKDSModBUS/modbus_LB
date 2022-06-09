@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
+
 namespace modbusLB
 {
     public partial class Form1 : Form
@@ -17,14 +18,19 @@ namespace modbusLB
         {
             InitializeComponent();
         }
-
+      // byte i = 10;
+      // byte j = 10;
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-               byte[] array = File.ReadAllBytes(dlg.FileName);
-               liftcontroll.SetData(array);
+              byte[] array = File.ReadAllBytes(dlg.FileName);
+              //array[29] = i;
+              //i += 30;
+              //array[16] = j;
+              //j += 30;
+              liftcontroll.SetData(array);
             }
 
         }
