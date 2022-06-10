@@ -68,6 +68,45 @@ namespace modbusLB
             };
         }
 
+        [StructLayout(LayoutKind.Explicit)]
+        public struct Union64
+        {
+            [FieldOffset(0)]
+            public Int64 Value;
+            [NonSerialized]
+            [FieldOffset(0)]
+            public UInt64 UValue;
+            [FieldOffset(0)]
+            public byte Byte0;
+            [FieldOffset(1)]
+            public byte Byte1;
+            [FieldOffset(2)]
+            public byte Byte2;
+            [FieldOffset(3)]
+            public byte Byte3;
+            [FieldOffset(4)]
+            public byte Byte4;
+            [FieldOffset(5)]
+            public byte Byte5;
+
+            public bool isBitSet(byte index)
+            {
+                if (index >= 63)
+                    return false;
+                return (Value & (1L << index)) != 0;
+            }
+            [System.Xml.Serialization.XmlIgnore]
+            public byte[] ToArray => new byte[]
+            {
+            Byte0,
+            Byte1,
+            Byte2,
+            Byte3,
+            Byte4,
+            Byte5
+            };
+        }
+
         public static string GetNameOfEnum(this Enum enumVal)
         {
             var type = enumVal.GetType();
@@ -82,6 +121,11 @@ namespace modbusLB
                 return Convert.ToInt16(enumVal).ToString("X4");
             }
 
+        }
+
+        internal static bool isStateFlag(LiftStatus cur, ulong val)
+        {
+            return (val & (ulong)cur) != 0;
         }
 
         [Description("Тип данных - Тип подустройства")]
@@ -547,5 +591,235 @@ namespace modbusLB
             stopEscalator = 26,
         }
 
+        public enum Doors
+        {
+            [Description("Состояние дверей не определено")]
+            undefined = 0,
+            [Description("Двери открываются")]
+            open = 1,
+            [Description("Двери полностью открыты")]
+            all_open = 2,
+            [Description("Двери закрываются")]
+            close = 3,
+            [Description("Двери полностью закрыты")]
+            all_close = 4,
+            [Description("Двери недозакрыты (приоткрыты)")]
+            underclosed = 5,
+            [Description("Двери заблокированы")]
+            doors_lock = 254,
+            [Description("Двери отсутствуют. Где двери?")]
+            absence = 255,
+        }
+
+        public enum StageNum
+        {
+            [Description("Эскалатор")]
+            escalator = 255,
+            [Description("Неизвестно")]
+            stage0 = 0,
+            [Description("1 этаж")]
+            stage1 = 1,
+            [Description("2 этаж")]
+            stage2 = 2,
+            [Description("3 этаж")]
+            stage3 = 3,
+            [Description("4 этаж")]
+            stage4 = 4,
+            [Description("5 этаж")]
+            stage5 = 5,
+            [Description("6 этаж")]
+            stage6 = 6,
+            [Description("7 этаж")]
+            stage7 = 7,
+            [Description("8 этаж")]
+            stage8 = 8,
+            [Description("9 этаж")]
+            stage9 = 9,
+            [Description("10 этаж")]
+            stage10 = 10,
+            [Description("11 этаж")]
+            stage11 = 11,
+            [Description("12 этаж")]
+            stage12 = 12,
+            [Description("13 этаж")]
+            stage13 = 13,
+            [Description("14 этаж")]
+            stage14 = 14,
+            [Description("15 этаж")]
+            stage15 = 15,
+            [Description("16 этаж")]
+            stage16 = 16,
+            [Description("17 этаж")]
+            stage17 = 17,
+            [Description("18 этаж")]
+            stage18 = 18,
+            [Description("19 этаж")]
+            stage19 = 19,
+            [Description("20 этаж")]
+            stage20 = 20,
+            [Description("21 этаж")]
+            stage21 = 21,
+            [Description("22 этаж")]
+            stage22 = 22,
+            [Description("23 этаж")]
+            stage23 = 23,
+            [Description("24 этаж")]
+            stage24 = 24,
+            [Description("25 этаж")]
+            stage25 = 25,
+            [Description("26 этаж")]
+            stage26 = 26,
+            [Description("27 этаж")]
+            stage27 = 27,
+            [Description("28 этаж")]
+            stage28 = 28,
+            [Description("29 этаж")]
+            stage29 = 29,
+            [Description("30 этаж")]
+            stage30 = 30,
+            [Description("31 этаж")]
+            stage31 = 31,
+            [Description("32 этаж")]
+            stage32 = 32,
+            [Description("33 этаж")]
+            stage33 = 33,
+            [Description("34 этаж")]
+            stage34 = 34,
+            [Description("35 этаж")]
+            stage35 = 35,
+            [Description("36 этаж")]
+            stage36 = 36,
+            [Description("37 этаж")]
+            stage37 = 37,
+            [Description("38 этаж")]
+            stage38 = 38,
+            [Description("39 этаж")]
+            stage39 = 39,
+            [Description("40 этаж")]
+            stage40 = 40,
+            [Description("41 этаж")]
+            stage41 = 41,
+            [Description("42 этаж")]
+            stage42 = 42,
+            [Description("43 этаж")]
+            stage43 = 43,
+            [Description("44 этаж")]
+            stage44 = 44,
+            [Description("45 этаж")]
+            stage45 = 45,
+            [Description("46 этаж")]
+            stage46 = 46,
+            [Description("47 этаж")]
+            stage47 = 47,
+            [Description("48 этаж")]
+            stage48 = 48,
+            [Description("49 этаж")]
+            stage49 = 49,
+            [Description("50 этаж")]
+            stage50 = 50,
+            [Description("51 этаж")]
+            stage51 = 51,
+            [Description("52 этаж")]
+            stage52 = 52,
+            [Description("53 этаж")]
+            stage53 = 53,
+            [Description("54 этаж")]
+            stage54 = 54,
+            [Description("55 этаж")]
+            stage55 = 55,
+            [Description("56 этаж")]
+            stage56 = 56,
+            [Description("57 этаж")]
+            stage57 = 57,
+            [Description("58 этаж")]
+            stage58 = 58,
+            [Description("59 этаж")]
+            stage59 = 59,
+            [Description("60 этаж")]
+            stage60 = 60,
+            [Description("61 этаж")]
+            stage61 = 61,
+            [Description("62 этаж")]
+            stage62 = 62,
+            [Description("63 этаж")]
+            stage63 = 63,
+            [Description("64 этаж")]
+            stage64 = 64,
+        }
+
+        [Flags]
+        public enum LiftStatus : ulong
+        {
+            [Description("Вставлен сервисный ключ (Режим ТО)")]
+            key =                   0x00000001,
+            [Description("Был рестарт блока")]
+            blockrestart =          0x00000002,
+            [Description("Многократный реверс дверей")]
+            reversedoors =          0x00000004,
+            [Description("Проникновение в МП")]
+            prenetrationMP =        0x00000008,
+            [Description("Отсутствует напряжение в цепи управления")]
+            notension =             0x00000010,
+            [Description("Зажата кнопка СТОП в кабине лифта")]
+            stopbuttton =           0x00000020,
+            [Description("Не закрыта дверь кабины")]
+            doorcabin =             0x00000040,
+            [Description("Разрыв цепи безопасности")]
+            PCbreak =               0x00000080,
+            [Description("Не сработал датчик УБ")]
+            UBsensor =              0x00000100,
+            [Description("КЗ цепи безопасности")]
+            KZPC =                  0x00000200,
+            [Description("Вызов диспетчера")]
+            calldispather =         0x00000400,
+            [Description("Несанкционированное движение кабины")]
+            unauthorized =          0x00000800,
+            [Description("Авария главного привода по УКСЛ")]
+            UKSL =                  0x00001000,
+            [Description("Авария привода дверей")]
+            doordrive =             0x00002000,
+            [Description("Проникновение в шахту")]
+            mine =                  0x00004000,
+            [Description("Неисправность УБ")]
+            UB =                    0x00008000,
+            [Description("Аварийная блокировка лифта")]
+            liftlock =              0x00010000,
+            [Description("Открыто МП")]
+            openMP =                0x00020000,
+            [Description("Кабина стоит между этажами")]
+            betweenfloors =         0x00040000,
+            [Description("Не сработал датчик ДК")]
+            DK =                    0x00080000,
+            [Description("Нет связи со станцией управления")]
+            noconnect =             0x00100000,
+            [Description("Главный привод включен")]
+            maindriveon =           0x00200000,
+            [Description("Бит пользователя")]
+            bituser =               0x00400000,
+            [Description("Перемычка пускателя")]
+            starter =               0x00800000,
+            [Description("Блокировка РД без РКД")]
+            RDnoRKD =               0x01000000,
+            [Description("Вызов диспетчера из МП")]
+            calldispatcherfrom =    0x02000000,
+            [Description("Неисправность тракта ГГС кабины лифта")]
+            GGScabin =              0x04000000,
+            [Description("Состояние USER1")]
+            USER1 =                 0x0100000000,
+            [Description("Состояние USER2")]
+            USER2 =                 0x0200000000,
+            [Description("Состояние USER3")]
+            USER3 =                 0x0400000000,
+            [Description("Состояние USER4")]
+            USER4 =                 0x0800000000,
+            [Description("Резервное питание ЛБ")]
+            backupLB =              0x1000000000,
+            [Description("Переменное напряжение в ЦБ")]
+            ACvoltage =             0x2000000000,
+            [Description("Пожарная опасность")]
+            FIRE =                  0x4000000000,
+            [Description("Неисправна батарея питания")]
+            battaryerror =          0x8000000000,
+        }
     }
 }

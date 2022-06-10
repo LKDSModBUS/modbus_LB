@@ -36,9 +36,38 @@ namespace modbusLB
                     DeviceClass.WorkMode type2 = (DeviceClass.WorkMode)array[28];
                     working_mode.Text = type2.GetNameOfEnum();
 
+                    DeviceClass.StageNum type4 = (DeviceClass.StageNum)array[22];
+                    floor.Text = type4.GetNameOfEnum();
+
+                    DeviceClass.Union16 val5 = new DeviceClass.Union16();
+                    val5.Byte0 = array[23];
+                    val5.Byte1 = array[24];
+
+                    DeviceClass.Doors type3 = (DeviceClass.Doors)val5.Value;
+                    door_status.Text = type3.GetNameOfEnum();
+
                     lb_appver.Text = $"{array[4]}.{array[5]}.{array[6]}";
 
-                    restart.Text = $"код {array[7]} ({array[8]})";
+                    restart.Text = $"код {array[7].ToString("X2")} ({array[8]})";
+
+                    DeviceClass.Union64 val6 = new DeviceClass.Union64();
+                    val6.Byte0 = array[40];
+                    val6.Byte1 = array[41];
+                    val6.Byte2 = array[42];
+                    val6.Byte3 = array[43];
+                    val6.Byte4 = array[44];
+                    val6.Byte5 = array[45];
+                    lift_status.Items.Clear();
+                    foreach (ulong tmmp in System.Enum.GetValues(typeof(DeviceClass.LiftStatus)))
+                    {
+                        DeviceClass.LiftStatus cur = (DeviceClass.LiftStatus)tmmp;
+                        if (DeviceClass.isStateFlag(cur, val6.UValue))
+                            lift_status.Items.Add(cur.GetNameOfEnum());
+                    }
+                    if (DeviceClass.isStateFlag(DeviceClass.LiftStatus.calldispather, val6.UValue))
+                        if (!DeviceClass.isStateFlag(DeviceClass.LiftStatus.calldispatcherfrom, val6.UValue))
+                            lift_status.Items.Add("Вызов диспетчера из кабины");
+
 
                     DeviceClass.Union32 val1 = new DeviceClass.Union32();
                     val1.Byte0 = array[120];
@@ -67,6 +96,88 @@ namespace modbusLB
                     val4.Byte2 = array[134];
                     val4.Byte3 = array[135];
                     door_drive_work_time.Text = $"{val4.Value.ToString()} сек.";
+
+                    if (array[28] == 16)
+                    {
+                        emergency_stop.Image = Properties.Resources.alarm;
+                    }
+                  
+                    switch (array[25])
+                    {
+                        case 0:
+                            {
+                                no_move.Checked = true;
+                                break;
+                            }
+                        case 1:
+                            {
+                                up.Image = Properties.Resources.up2;
+                                down.Image = Properties.Resources.down2;
+                                break;
+                            }
+                        case 2:
+                            {
+                                up.Image = Properties.Resources.up2;
+                                down.Image = Properties.Resources.down1;
+                                break;
+                            }
+                        case 3:
+                            {
+                                up.Image = Properties.Resources.up1;
+                                down.Image = Properties.Resources.down2;
+                                break;
+                            }
+                        case 4:
+                            {
+                                up.Image = Properties.Resources.up1;
+                                down.Image = Properties.Resources.down1;
+                                break;
+                            }
+                    }
+               
+                    switch (val5.Value)
+                    {
+                        case 0:
+                            {
+                                lift.Image = Properties.Resources.where;
+                                break;
+                            }
+                        case 1:
+                            {
+                                lift.Image = Properties.Resources.closing;
+                                break;
+                            }
+                        case 2:
+                            {
+                                lift.Image = Properties.Resources.open;
+                                break;
+                            }
+                        case 3:
+                            {
+                                lift.Image = Properties.Resources.opening;
+                                break;
+                            }
+                        case 4:
+                            {
+                                lift.Image = Properties.Resources.close;
+                                break;
+                            }
+                        case 5:
+                            {
+                                lift.Image = Properties.Resources.not_full_open;
+                                break;
+                            }
+                        case 254:
+                            {
+                                lift.Image = Properties.Resources._lock;
+                                break;
+                            }
+                        case 255:
+                            {
+                                lift.Image = Properties.Resources.no;
+                                break;
+                            }
+                    }
 
                     #region [ggs]
                     dispatcher.Checked = ((array[13] & 0x20) != 0);
@@ -182,6 +293,7 @@ namespace modbusLB
                 }
             }
         }
+
         private void LiftControl_Load(object sender, EventArgs e)
         {
 

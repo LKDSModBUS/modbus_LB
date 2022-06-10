@@ -18,19 +18,20 @@ namespace modbusLB
         {
             InitializeComponent();
         }
-      // byte i = 10;
-      // byte j = 10;
+         //byte i = 0;
+         //byte j = 10;
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
               byte[] array = File.ReadAllBytes(dlg.FileName);
-              //array[29] = i;
-              //i += 30;
-              //array[16] = j;
-              //j += 30;
-              liftcontroll.SetData(array);
+                //array[23] = i;
+                //i += 255;
+                //array[29] = i;
+                //i += 30;
+                //array[22] = j;
+                liftcontroll.SetData(array);
             }
 
         }
