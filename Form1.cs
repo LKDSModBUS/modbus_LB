@@ -18,7 +18,7 @@ namespace modbusLB
         {
             InitializeComponent();
         }
-         //byte i = 0;
+         byte i = 0;
          //byte j = 10;
         private void button1_Click(object sender, EventArgs e)
         {
@@ -26,8 +26,8 @@ namespace modbusLB
             if (dlg.ShowDialog() == DialogResult.OK)
             {
               byte[] array = File.ReadAllBytes(dlg.FileName);
-                //array[23] = i;
-                //i += 255;
+                array[23] = i;
+                i += 255;
                 //array[29] = i;
                 //i += 30;
                 //array[22] = j;
